@@ -8,14 +8,14 @@ import (
 )
 
 func main() {
-	r := gin.Default();
+	r := gin.Default()
 	models.ConnectDatabase()
 
-	r.GET("/users/register", usercontroller.Index)
-	r.GET("", usercontroller.Show)
-	r.POST("", usercontroller.Create)
-	r.PUT("", usercontroller.Update)
-	r.DELETE("", usercontroller.Delete)
+	r.GET("/users", usercontroller.Index)
+	r.GET("/users/:id", usercontroller.Show)
+	r.POST("/users/register", usercontroller.Create)
+	r.PUT("/users/:id", usercontroller.Update)
+	r.DELETE("/users", usercontroller.Delete)
 
 	r.Run()
 
